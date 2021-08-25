@@ -37,6 +37,10 @@ call plug#end()
 set bg=dark
 colo jellybeans
 
+let g:ale_fixers = {
+      \  'cpp': ['clang-format']
+      \}
+
 set nu " number lines
 set rnu " relative numbering
 set nosm " don't show mode in status line
@@ -57,8 +61,10 @@ nmap <leader>y "+y
 nmap <leader>p "+p
 nmap <C-J> <Plug>(ale_next_wrap)
 nmap <C-K> <Plug>(ale_previous_wrap)
+nmap <C-F> <Plug>(ale_fix)
 
 autocmd filetype cpp nmap <leader>r :w <bar> !g++ % -o %:r && ./%:r <CR>
+autocmd BufNewFile *.cpp 0r ~/.config/skeleton.cpp
 if has("vms")
   set nobackup    " do not keep a backup file, use versions instead
 else

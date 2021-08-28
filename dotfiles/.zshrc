@@ -12,10 +12,7 @@ compinit
 # End of lines added by compinstall
 
 # prompt
-autoload -U promptinit; promptinit
-prompt spaceship
-eval spaceship_vi_mode_enable
-#PROMPT='%B%F{#c6b6ee}%3~%f%b %# '
+PROMPT='%B%F{#c6b6ee}%3~%f%b %# '
 
 ## ALIASES
 # Modified commands
@@ -48,4 +45,3 @@ alias lx='ll -BX'
 alias lal='la | less'
 alias install='sudo pacman -S --needed'
 alias uninstall='sudo pacman -Rs'
-alias edwl='vim ~/.config/dwl/config.h && cd ~/Packages/dwl/ && makepkg -fics'

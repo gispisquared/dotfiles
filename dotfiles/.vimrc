@@ -61,8 +61,8 @@ nmap <leader>y "+y
 nmap <leader>p "+p
 nmap <C-J> <Plug>(ale_next_wrap)
 nmap <C-K> <Plug>(ale_previous_wrap)
-nmap <C-F> <Plug>(ale_fix)
 
+let g:ale_fix_on_save = 1
 autocmd filetype cpp nmap <leader>r :w <bar> !g++ % -o %:r && ./%:r <CR>
 autocmd BufNewFile *.cpp 0r ~/.config/skeleton.cpp
 if has("vms")
@@ -73,3 +73,7 @@ else
     set undofile  " keep an undo file (undo changes after closing)
   endif
 endif
+
+" disable mouse
+set mouse=
+set ttymouse=

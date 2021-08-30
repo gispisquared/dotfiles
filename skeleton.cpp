@@ -9,7 +9,8 @@ using namespace std;
 
 typedef pair<int,int> pi;
 typedef vector<int> vi;
-typedef vector<pi,pi> vpi;
+typedef vector<pi> vpi;
+typedef long long ll;
 
 int main() {
   assert(freopen("filein.txt", "r", stdin));

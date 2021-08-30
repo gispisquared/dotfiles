@@ -1,0 +1,7 @@
+set recolor true
+set recolor-darkcolor "#bdbdbd"
+set recolor-lightcolor "#151515"
+map <C-=> zoom in
+map <C--> zoom out
+map <C-0> zoom default
+set page-padding 10

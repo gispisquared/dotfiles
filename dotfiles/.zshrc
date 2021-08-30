@@ -12,7 +12,8 @@ compinit
 # End of lines added by compinstall
 
 # prompt
-PROMPT='%B%F{#c6b6ee}%3~%f%b %# '
+#PROMPT='%B%F{#c6b6ee}%3~%f%b %# '
+eval $(starship init zsh)
 
 ## ALIASES
 # Modified commands
@@ -36,7 +37,6 @@ alias pgg='ps -Af | grep'
 alias svim='sudo rvim'
 alias reboot='systemctl reboot'
 alias shutdown='systemctl poweroff'
-alias update='sudo pacman -Syu'
 alias ls='ls -hF --color=auto'
 alias lr='ls -R'
 alias ll='ls -l'
@@ -45,3 +45,5 @@ alias lx='ll -BX'
 alias lal='la | less'
 alias install='sudo pacman -S --needed'
 alias uninstall='sudo pacman -Rs'
+alias update='sudo pacman -Syu'
+alias clean='sudo pacman -R $(pacman -Qdtq)'

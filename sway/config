@@ -23,7 +23,8 @@ set $menu bemenu_path | bemenu-run | xargs swaymsg exec --
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+#output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+output * bg ~/.config/sway/bg.png fill
 #
 # Example configuration:
 #
@@ -35,11 +36,11 @@ output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 #
 # Example configuration:
 #
-# exec swayidle -w \
-#          timeout 300 'swaylock -f -c 000000' \
-#          timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
-#          before-sleep 'swaylock -f -c 000000'
-#
+exec swayidle -w \
+         timeout 300 'swaylock -f -c 000000' \
+         timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+         before-sleep 'swaylock -f -c 000000'
+
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
 # resumed. It will also lock your screen before your computer goes to sleep.
@@ -81,6 +82,14 @@ input type:touchpad {
 
     # Start your launcher
     bindsym $mod+d exec $menu
+    
+    # Sound
+    bindsym XF86AudioRaiseVolume exec amixer set Master 5%+
+    bindsym XF86AudioLowerVolume exec amixer set Master 5%-
+    bindsym XF86AudioMute exec amixer set Master toggle
+    
+    # Screenshots
+    bindsym $mod+p exec grim
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -93,7 +102,7 @@ input type:touchpad {
     bindsym $mod+Shift+c reload
 
     # Exit sway (logs you out of your Wayland session)
-    bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
+    bindsym $mod+Shift+e exec swaymsg exit
 #
 # Moving around:
 #
@@ -151,8 +160,8 @@ input type:touchpad {
     # You can "split" the current object of your focus with
     # $mod+b or $mod+v, for horizontal and vertical splits
     # respectively.
-    bindsym $mod+v splith
-    bindsym $mod+b splitv
+    bindsym $mod+b splith
+    bindsym $mod+v splitv
 
     # Switch the current container between different layout styles
     bindsym $mod+s layout stacking
@@ -228,3 +237,5 @@ bar {
 include /etc/sway/config.d/*
 xwayland disable
 default_border pixel 1
+client.focused #000000 #e1c0fa #000000 #e1c0fa
+font Fira Code

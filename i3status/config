@@ -8,25 +8,27 @@
 
 general {
         colors = true
-        interval = 5
+        interval = 1
         color_good = "#94B979"
         color_bad = "#E27373"
         color_degraded = "#FFBA7B"
 }
 
+order += "volume master"
+order += "wireless _first_"
 order += "battery all"
 order += "cpu_usage all"
-order += "memory"
+#order += "memory"
 order += "tztime local"
 
-wireless _first_ {
-        format_up = " W: (%quality at %essid) %ip " 
-        format_down = " W: down " 
+volume master {
+        format = " V %volume "
+        format_muted = " M %volume "
 }
 
-ethernet _first_ {
-        format_up = " E: %ip (%speed) " 
-        format_down = " E: down " 
+wireless _first_ {
+        format_up = " W%quality " 
+        format_down = " W down " 
 }
 
 battery all {
@@ -41,20 +43,18 @@ cpu_usage {
 }
 
 disk "/" {
-        format =  " %avail " 
+        format =  " D %avail " 
 }
 
 load {
-        format =  " %1min " 
+        format =  " L %1min " 
 }
 
 memory {
         format =  "M %used | %available " 
         threshold_degraded =  "1G" 
-        format_degraded =  " MEMORY < %available " 
 }
 
-
 tztime local {
-        format =  " %d/%m %H:%M " 
+        format =  " %d/%m %H:%M:%S " 
 }

@@ -1,0 +1,5 @@
+Install iwd and iwctl
+Install geoclue and clight
+Install zathura
+Fix /etc/X11/xorg.conf.d/
+Install acpid

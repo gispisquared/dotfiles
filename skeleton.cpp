@@ -13,6 +13,8 @@ typedef vector<pi> vpi;
 typedef long long ll;
 
 int main() {
+  cin.tie(0);
+  ios::sync_with_stdio(0);
   assert(freopen("filein.txt", "r", stdin));
   assert(freopen("fileout.txt", "w", stdout));
 }

@@ -13,4 +13,5 @@ xsettingsd &
 /usr/lib/geoclue-2.0/demos/agent &
 clight &
 .config/scripts/bg.sh &
+xss-lock -- i3lock -n -i .config/bg.png &
 exec xmonad

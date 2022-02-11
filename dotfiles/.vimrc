@@ -31,14 +31,22 @@ Plug 'lervag/vimtex'
 Plug 'easymotion/vim-easymotion'
 Plug 'luochen1990/rainbow'
 Plug 'fladson/vim-kitty'
-" TODO: set up completion
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+Plug 'valloric/youcompleteme'
 call plug#end()
 
 set bg=dark
 colo jellybeans
 
+let g:ale_linters_ignore = {
+      \ 'tex': ['lacheck']
+      \}
+
 let g:ale_fixers = {
-      \  'cpp': ['clang-format']
+      \ 'cpp': ['clang-format'],
+      \ 'tex': ['latexindent', 'textlint'],
+      \ '*': ['remove_trailing_lines', 'trim_whitespace']
       \}
 
 set nu " number lines
@@ -53,8 +61,10 @@ set wmnu " command line completion
 set tw=80 " wrap lines after 80 characters
 set cc=+1 " colour the first bad column
 set foldmethod=indent " fold by indents
+set foldlevel=10
 let mapleader=','
 let maplocalleader='\'
+let g:UltiSnipsExpandTrigger="<C-Space>"
 map <Space> <Plug>(easymotion-prefix)
 nmap <leader>ev :sp $MYVIMRC<CR>
 nmap <leader>y "+y
@@ -63,6 +73,8 @@ nmap <C-J> <Plug>(ale_next_wrap)
 nmap <C-K> <Plug>(ale_previous_wrap)
 
 let g:ale_fix_on_save = 1
+let g:vimtex_view_method = 'zathura'
+
 autocmd filetype cpp nmap <leader>r :w <bar> !g++ % -o %:r && ./%:r <CR>
 autocmd BufNewFile *.cpp 0r ~/.config/skeleton.cpp
 if has("vms")

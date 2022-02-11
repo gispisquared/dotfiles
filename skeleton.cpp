@@ -11,6 +11,9 @@ typedef pair<int,int> pi;
 typedef vector<int> vi;
 typedef vector<pi> vpi;
 typedef long long ll;
+typedef vector<ll> vll;
+typedef pair<ll,ll> pll;
+typedef vector<pll> vpll;
 
 int main() {
   cin.tie(0);

@@ -1,8 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#define AND << ' ' <<
-#define END << '\n'
 #define Ff first
 #define Ss second
 #define PB push_back

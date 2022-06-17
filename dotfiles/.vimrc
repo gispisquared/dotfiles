@@ -29,10 +29,9 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
 Plug 'lervag/vimtex'
 Plug 'easymotion/vim-easymotion'
-Plug 'luochen1990/rainbow'
 Plug 'fladson/vim-kitty'
 Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
+"Plug 'honza/vim-snippets'
 Plug 'valloric/youcompleteme'
 call plug#end()
 
@@ -40,14 +39,20 @@ set bg=dark
 colo jellybeans
 
 let g:ale_linters_ignore = {
-      \ 'tex': ['lacheck']
+      \ 'tex': ['lacheck'],
+      \ 'python': ['mypy']
       \}
 
 let g:ale_fixers = {
       \ 'cpp': ['clang-format'],
       \ 'tex': ['latexindent', 'textlint'],
+      \ 'python': ['autopep8'],
       \ '*': ['remove_trailing_lines', 'trim_whitespace']
       \}
+
+let g:ycm_global_ycm_extra_conf='~/.config/dotfiles/.ycm_extra_conf.py'
+
+let g:UltiSnipsSnippetDirectories=['~/.config/snippets/UltiSnips/']
 
 set nu " number lines
 set rnu " relative numbering
@@ -61,7 +66,7 @@ set wmnu " command line completion
 set tw=80 " wrap lines after 80 characters
 set cc=+1 " colour the first bad column
 set foldmethod=indent " fold by indents
-set foldlevel=10
+set foldlevel=100
 let mapleader=','
 let maplocalleader='\'
 let g:UltiSnipsExpandTrigger="<C-Space>"

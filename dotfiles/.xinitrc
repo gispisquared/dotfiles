@@ -14,4 +14,5 @@ xsettingsd &
 clight &
 .config/scripts/bg.sh &
 xss-lock -- i3lock -n -i .config/bg.png &
-exec xmonad
+xbindkeys &
+xmonad --recompile && xmonad
